@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo oscuro */
+    color: #030303; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+    zoom: 75%;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: #eb7e03;
+}
+h2 {
+    text-align: center;
+    padding: 20px;
+    color: #eb7e03;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1000px; /* Ajusta el ancho según tus preferencias */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    background-color: #f5a300f5; /* Color de fondo de la tabla */
+    border: 1px solid #777; /* Borde de la tabla */
+}
+
+th, td {
+    border: 1px solid #777; /* Borde de las celdas */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f1efed; /* Color de fondo de las celdas de encabezado */
+}
+
+tr:nth-child(even) {
+    background-color: #eb7e03 /* Color de fondo de las filas pares */
+}
+
+tr:nth-child(odd) {
+    background-color: #eb7e03 /* Color de fondo de las filas impares */
+}
+
+input[type="text"] {
+    background-color: #141414; /* Color de fondo de los campos de entrada de texto */
+    color: #fff; /* Texto blanco en campos de entrada de texto */
+    border: none;
+    padding: 5px;
+}
+
+button {
+    background-color: #444; /* Color de fondo de los botones */
+    color: #fff; /* Texto blanco en los botones */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Estilos para los botones de eliminar */
+form {
+    display: inline; /* Para que los botones estén en la misma línea */
+   
+}
+.image-button {
+    width: 100px; /* Ancho fijo de los botones */
+    height: 100px; /* Alto fijo de los botones */
+    border: none;
+    background:#000;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 120px;
+    overflow: hidden; /* Para recortar imágenes más grandes */
+  }
+  .image-buttons-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Espacio arriba de los botones */
+  }
+  .image-button img {
+    max-width: 100%; /* Establece el ancho máximo de la imagen al 100% */
+    max-height: 100%; /* Establece el alto máximo de la imagen al 100% */
+  }
+.probando {
+  margin-right: 600px;
+}
+
+

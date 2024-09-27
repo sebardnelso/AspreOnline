@@ -1,0 +1,101 @@
+/* styles.css */
+
+/* Estilo para centrar el formulario y darle estilo al botón */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #080808; /* Cambia el color de fondo según tu preferencia */
+  zoom: 75%;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 300px; /* Limita el ancho del contenedor del formulario */
+}
+
+h1 {
+  font-size: 24px; /* Ajusta el tamaño del título según tu preferencia */
+  text-align:center; /* Centra el texto horizontalmente */
+  margin-top: 0; /* Elimina el margen superior predeterminado del h1 */
+}
+
+form {
+  margin: 0 auto;
+  max-width: 300px;
+  border: 1px solid #000; /* Agrega un borde negro alrededor del formulario */
+  padding: 20px; /* Aumenta el espacio entre los bordes y los elementos internos */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: #d67303;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #0c0c0c; /* Agrega una línea inferior a las etiquetas */
+  padding-bottom: 5px; /* Aumenta el espacio entre el texto y la línea inferior */
+}
+.centered-text {
+  text-align: center;
+  margin: 0 auto; /* Esto centrará horizontalmente el elemento */
+}
+
+form input[type="text"],
+form input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none; /* Elimina el borde de los campos de entrada */
+  border-bottom: 1px solid #000; /* Agrega una línea inferior a los campos de entrada */
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Cambia el color del botón según tu preferencia */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.error-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 550%);
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 0px 0px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 5000; /* Asegura que el mensaje esté en la parte superior de todo */
+}
+.image-button {
+  width: 200px; /* Ancho fijo de los botones */
+  height: 200px; /* Alto fijo de los botones */
+  border: none;
+  background:#000;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 120px;
+  overflow: hidden; /* Para recortar imágenes más grandes */
+}
+.image-buttons-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Espacio arriba de los botones */
+}
+.image-button img {
+  max-width: 100%; /* Establece el ancho máximo de la imagen al 100% */
+  max-height: 100%; /* Establece el alto máximo de la imagen al 100% */
+}

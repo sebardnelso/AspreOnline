@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios de Artículos</title>
+    <!-- Agrega estas líneas a tu archivo HTML para incluir Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="precios.css"> <!-- Enlaza la hoja de estilos CSS -->
+    <style>
+        #mensajeCarrito {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            background-color: #28a745;
+            color: #fff;
+            padding: 25px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="notification" style="display: none;"></div>
+    <div id="mensajeCarrito" style="display: none;" class="alert alert-success">Artículo cargado al carrito</div>
+
+
+     <div class="header">
+       <div class="logo">
+            <a href="/index">
+                <button class="image-button">
+                    <img src="favicon4.png" alt="Imagen 1">
+                </button>
+                </a>
+            </div>
+        
+        <div class="user-info">
+
+            <div class="button-container">
+                <form action="/actualizarPagina" method="post">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="search-forms">
+        <form id="searchForm" action="/precios" method="GET">
+            <input type="text"class="pisicion" name="filtro" placeholder="Busque por código o descripción">
+            <button type="submit"  id="searchButton">Buscar</button>
+        </form>
+        <form id="searchForm" action="/filtroprecios" method="GET">
+            <input type="text"class="pisicion" name="articulo" placeholder="Ingrese articulo:'Amortiguador/Rotula' ">
+            <input type="text"class="pisicion" name="posicion" placeholder="Ingrese posicion: 'Del/tras">
+            <input type="text"class="pisicion" name="modelo" placeholder="Ingrese Modelo Auto: 'Fiat">
+            <input type="text"class="pisicion" name="marca" placeholder="Ingrese Marca Auto: 'Uno/147">
+            <button type="submit"  id="searchButton">Buscar</button>
+        </form>
+    </div>
+    <div class="search-form">
+        <!-- Agrega un botón para ir a la página de proveedores -->
+        <a href="/proveedor" class="btn-proveedores">Filtrar por Proveedores</a>
+        <!--<a href="/masrotacion" class="btn-proveedores">Mostrar los 10 más vendidos</a>-->
+        <a href="/carritomisiones" class="btn-proveedores">Ver Carrito de Misiones</a>
+        <a href="/carritocorrientes" class="btn-proveedores">Ver Carrito de Corrientes</a>
+        <a href="/historico" class="btn-proveedores">Ver Pedidos Historico</a>
+        <a href="/descutil" class="btn-proveedores">Modificar Descuento/Utilidad Por proveedor</a>
+    </div>
+    
+    <div class="grid-container">
+        <!-- Resultados de la sección principal -->
+        <% for (let i = 0; i < 100 && i < precios.length; i++) { %>
+            <div class="grid-item">
+                <div class="image-container">
+                <img src="/imagenes/<%= precios[i].nombreimagen %>.jpg" alt="" class="articulo-imagen" data-enlarge="false" loading="lazy">
+            </div>
+                <p><strong>Código de Artículo:</strong> <span style="color: orange;">  <%= precios[i].codarticulo %></p>
+                <p><strong>Descripción:</strong><span style="color: orange;">  <%= precios[i].descrip %></p>
+                <p><strong>Precio Neto:</strong><span style="color: orange;">$ <%= precios[i].precioneto %></p>
+                <p><strong>Costo:</strong><span style="color: orange;">$ <%= precios[i].preciocosto %></p>
+                <p><strong>IVA:</strong><span style="color: orange;">$ <%= precios[i].ivacosto %></p>
+                <p><strong>Precio Venta:</strong><span style="color: orange;">$ <%= precios[i].precioventa %></p>
+                
+                <p><strong>Stock en Misiones:</strong><span style="color: orange;">    <%= precios[i].stockmisiones %></p>
+                <p><strong>Stock en Corriente:</strong><span style="color: orange;">    <%= precios[i].stockcorriente %></p>
+                <div id="mensajeCarrito" style="display: none;" class="alert alert-success">Artículo cargado al carrito</div>
+                <!-- Campo de cantidad y botón "Cargar al carrito" -->
+                        <div class="tooltip-container" id="tooltip<%= i %>">
+            <!-- Contenido del tooltip: Detalles del artículo -->
+                        <div class="tooltip-content">
+                            <!-- Agrega aquí los detalles del artículo que deseas mostrar -->
+
+                            <p><strong>Equivalencia 1:</strong> <a href="/equivalencia?codigo=<%= precios[i].equivalencia1 %>" class="equivalencia-link"><%= precios[i].equivalencia1 %></a></p>
+                            <p><strong>Equivalencia 2:</strong> <a href="/equivalencia?codigo=<%= precios[i].equivalencia2 %>" class="equivalencia-link"><%= precios[i].equivalencia2 %></a></p>
+                            <p><strong>Equivalencia 3:</strong> <a href="/equivalencia?codigo=<%= precios[i].equivalencia3 %>" class="equivalencia-link"><%= precios[i].equivalencia3 %></a></p>
+                            <!-- ... (otros detalles del artículo) ... -->
+                        </div>
+                        </div>
+                <form class="carrito-form">
+                    <input class="input-group" type="number" name="cantidad" placeholder="Cantidad">
+                    <button type="button" class="btn btn-primary carrito-btn" data-codarticulo="<%= precios[i].codarticulo %>" data-carrito="misiones">Cargar al carrito Misiones</button>
+                    <button type="button" class="btn btn-secondary carrito-btn" data-codarticulo="<%= precios[i].codarticulo %>" data-carrito="corrientes">Cargar al carrito Corrientes</button>
+                </form>
+            </div>
+        <% } %>
+            <!-- Botones de navegación -->
+    <div class="pagination">
+        <% if (currentPage > 1) { %>
+            <a href="/precios?page=<%= currentPage - 1 %>" class="btn-pagination">Página Anterior</a>
+        <% } %>
+        <span>Página <%= currentPage %> de <%= totalPages %></span>
+        <% if (currentPage < totalPages) { %>
+            <a href="/precios?page=<%= currentPage + 1 %>" class="btn-pagination">Página Siguiente</a>
+        <% } %>
+    </div>
+    </div>
+    <script async src="/js/filtro.js"></script>
+
+</body>
+</html>

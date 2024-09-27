@@ -1,0 +1,43 @@
+/* Estilos para la lista de proveedores */
+.proveedores-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .proveedor-item {
+    width: 30%;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #080808;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .proveedor-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .proveedor-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los enlaces */
+  .proveedor-item a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Estilos para los títulos y descripciones */
+  .proveedor-item p {
+    margin: 0;
+  }
+  
+  /* Estilos para el título */
+  .proveedor-item p strong {
+    font-weight: bold;
+  }
+  

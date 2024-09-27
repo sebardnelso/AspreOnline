@@ -1,0 +1,66 @@
+<!-- precios.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios de Artículos</title>
+    <link rel="stylesheet" href="precios.css"> <!-- Enlaza la hoja de estilos CSS -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <!-- Coloca aquí tu logotipo -->
+        </div>
+        <h1>Artículos</h1>
+        <div class="user-info">
+            <p class="razon-social"><%= user.razonsocial %></p>
+            <p class="email"><%= user.email %></p>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="search-form">
+            <form id="searchForm" action="/preciosavanzada" method="GET">
+                <input type="text" name="filtro" placeholder="Buscar por código o descripción">
+                <input type="text" id="busquedaAvanzada" name="busquedaAvanzada" placeholder="Búsqueda Avanzada">
+                <button type="submit" id="searchButton">Buscar</button>
+                <button type="button" id="advancedSearchButton">Buscar Avanzado</button>
+            </form>
+            <!-- Agrega un botón para ir a la página de proveedores -->
+            <a href="/proveedor" class="btn-proveedores">Ver Proveedores</a>
+        </div>
+    </div>
+    <div class="grid-container">
+        <% precios.forEach((articulo) => { %>
+            <div class="grid-item">
+                <p><strong>Código de Artículo:</strong> <%= articulo.codarticulo %></p>
+                <p><strong>Descripción:</strong> <%= articulo.descrip %></p>
+                <p><strong>Precio Neto:</strong> <%= articulo.precioneto %></p>
+                <p><strong>IVA:</strong> <%= articulo.iva %></p>
+                <p><strong>Total:</strong> <%= articulo.total %></p>
+                <p><strong>Stock en Misiones:</strong> <%= articulo.stockmisiones %></p>
+                <p><strong>Stock en Corriente:</strong> <%= articulo.stockcorriente %></p>
+                <!-- Campo de cantidad y botón "Cargar al carrito" -->
+                <input type="number" name="cantidad" placeholder="Cantidad">
+                <button class="btn-cargar" data-codarticulo="<%= articulo.codarticulo %>">Cargar al carrito</button>
+            </div>
+        <% }); %>
+    </div>
+    <script>
+        const searchForm = document.getElementById('searchForm');
+        const searchButton = document.getElementById('searchButton');
+        const advancedSearchButton = document.getElementById('advancedSearchButton');
+
+        // Agrega un controlador de eventos para el botón "Buscar Avanzado"
+        advancedSearchButton.addEventListener('click', () => {
+            console.log('Botón "Buscar Avanzado" hizo clic')
+            // Cambia la acción del formulario a la URL de búsqueda avanzada
+            searchForm.action = '/preciosAvanzada';
+            // Envía el formulario
+            searchForm.submit();
+        });
+    </script>
+</body>
+</html>
+

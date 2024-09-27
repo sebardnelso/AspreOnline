@@ -1,0 +1,443 @@
+/* public/styles/precios.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    zoom: 75%;
+    background-image: url('/fondo.JPG'); /* Ajusta la ruta de la imagen según tu estructura de carpetas */
+    background-size:cover;
+    background-position:top center;;
+    /*background-repeat: repeat;*/
+    background-attachment: fixed;
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+}
+
+h1 {
+    text-align: center;
+    color: #faf9f8ef;
+}
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .search-form {
+      grid-template-columns: 2fr 1fr; /* Divide en dos columnas en pantallas más grandes */
+  }
+}
+
+/* Estilos para la barra de búsqueda */
+.posicion {
+  width: auto;
+}
+
+/* Estilos para los botones */
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .button-container {
+      grid-template-columns: repeat(2, 1fr); /* Dos botones por fila en pantallas más grandes */
+  }
+}
+
+.btn-proveedores {
+  text-align: center;
+  padding: 10px;
+  background-color: #e2a808;
+  color: #000;
+  text-decoration: none;
+  border: 1px solid #161616;
+}
+
+.header {
+    display: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #161615fd;
+    border-bottom: 5px solid #000; /* Línea inferior */
+}
+.header h1{
+  color: #0e0e0e; /* Cambia el color del texto según tu preferencia */
+  font-size: 40px; /* Ajusta el tamaño de la fuente según tu preferencia */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-top: 20px; /* Agrega espacio en la parte superior del título */
+  font-weight: bold; /* Opcional: establece el peso de la fuente a negrita */
+  text-transform: uppercase; /* Opcional: convierte el texto en mayúsculas */
+  background-color: #070707; /* Establece el fondo en negro */
+  padding: 10px 0; /* Agrega espaciado alrededor del texto */
+  border-radius: 20px;
+}
+
+.user-info {
+    text-align:center;
+    color: #fcfaf9;
+    background-color: #070707;
+    border-radius:10px;
+}
+.button-container {
+  display: flex; /* Usa un contenedor flexible para alinear elementos horizontalmente */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
+
+.button-container button {
+  margin-right: 10px; /* Agrega un margen derecho para separar los botones */
+}
+
+.image-button {
+  width: 100px; /* Ancho fijo de los botones */
+  height: 100px; /* Alto fijo de los botones */
+  border: none;
+  background:#000;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 100px;
+  overflow: hidden; /* Para recortar imágenes más grandes */
+  
+}
+.image-buttons-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Espacio arriba de los botones */
+}
+.image-button img {
+  max-width: 100%; /* Establece el ancho máximo de la imagen al 100% */
+  max-height: 100%; /* Establece el alto máximo de la imagen al 100% */
+}
+  /* Estilo para los enlaces de equivalencia */
+  .equivalencia-link {
+  /*  background-color: #e4dfdd; /* Color de fondo */
+    color: #f70707; /* Color del texto */
+    padding: 5px 10px; /* Espacio interno (padding) para que parezca un botón */
+    /*text-decoration: none; /* Eliminar subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-right: 2px; /* Margen derecho para separar los enlaces */
+  }
+
+.utilidades{
+  color:#d65600
+  
+}
+/* Añade este estilo para la transición de tamaño */
+.articulo-imagen {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Estilo para la imagen ampliada */
+.articulo-imagen.enlarged {
+  transform: scale(4.5); /* Ajusta el nivel de zoom como prefieras */
+  z-index: 100; /* Asegura que la imagen ampliada esté sobre otras */
+  cursor: pointer; /* Cambia el cursor al hacer hover */
+}
+
+
+/* Estilo para la razón social y el correo electrónico */
+.razon-social,
+.email {
+    font-size: 20px;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 columnas en la grilla */
+    gap: 20px; /* Espacio entre elementos */
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+input[name="filtro"] {
+    width: 200px; /* Ancho deseado en píxeles */
+    height: 30px; /* Alto deseado en píxeles */
+  }
+
+  /*color de fondo del carrito*/
+  .grid-item {
+    border: 1px solid #161616;
+    padding: 10px;
+    background-color: #050505;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+   /* text-align: center; /* Centrar el contenido horizontalmente */
+
+}
+
+
+
+.grid-item img {
+    width: 100px;
+    height: 100px;
+    display: block; /* Eliminar el espacio adicional debajo de la imagen */
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+    /*margin-right: 10px; /* Espacio entre las imágenes */
+}
+.grid-item .image-container {
+  display: flex;
+  justify-content: space-between; /* Asegura que las imágenes se muestren en fila (horizontal) */
+  align-items: center; /* Centrar verticalmente las imágenes */
+}
+
+
+ 
+
+/*diseño carrito */
+.grid-item p {
+    margin: 0;
+    padding: 1;
+    color: #fcfdff;
+    font-size: 18px;
+}
+/* Agrega estos estilos en tu archivo "precios.css" o en un archivo de estilos CSS separado */
+
+/* Estilos para las listas desplegables */
+label {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #ecaf05;
+  margin-left: 20px;
+  align-items: center;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+/* Estilos para el botón de búsqueda y el botón de proveedores */
+#searchButton, .btn-proveedores {
+  padding: 10px 20px;
+  background-color: #007bff; /* Color de fondo azul, puedes cambiarlo */
+  color: #fff; /* Color del texto en blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px;
+}*/
+
+
+
+/* Estilos para los botones "Cargar al carrito" */
+.btn-cargar {
+  padding: 5px 10px;
+  background-color: #28a745; /* Color de fondo verde, puedes cambiarlo */
+  color: #fff; /* Color del texto en blanco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Estilos para los campos de cantidad */
+input[type="number"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+/* Estilos para las listas desplegables de filtros */
+#marca, #modelo, #combustible {
+  width: 150px; /* Ancho de las listas desplegables */
+  margin-left: 10px;
+  align-items: center;
+}
+
+/* Estilos para centrar los elementos */
+.label-container {
+    display: flex;
+    align-items: center;
+  }
+  .pisicion {
+
+    width: 300px; 
+    height: 40px;
+    margin-left: -450px;
+  }
+  
+  /* Estilos para el campo de búsqueda y el botón de búsqueda */
+ .search-form {
+    display: flex;
+    align-items: center;
+
+    margin-top: 30px;
+
+    margin-top: 20px;
+
+    margin-left: 0; /* Establece el margen izquierdo a 0 para posicionarlo a la izquierda */
+}
+  
+  /* Estilos para centrar el botón de búsqueda */
+  #searchButton {
+    margin-left: 10px; /* Espacio izquierdo para separar del campo de búsqueda */
+    margin-right: 10px; /* Espacio derecho para separar de los filtros */
+    margin-left: 0;
+  }
+  
+  /* Estilos para las listas desplegables de filtros */
+  #articulo, #marca, #modelo, #combustible {
+    width: 250px; /* Ancho de las listas desplegables */
+  }
+  
+  /* Estilos para centrar las listas desplegables */
+  .select-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Espacio derecho para separar de otros elementos */
+  
+  }
+ /* Estilos para centrar los elementos en la clase "search-form" */
+.search-form {
+  text-align: center; /* Centra el contenido horizontalmente */
+  margin-top: 20px; /* Agrega un espacio superior de 20px */
+  margin-left: 250px;
+  margin-block: 19px;
+  
+}
+.texto-rojo {
+  color: rgb(238, 143, 0);
+  font-size: 25px;
+}
+/*////////////////////////////////////////*/
+/* Estilos para los campos de búsqueda y botón */
+.search-forms {
+  text-align: center; /* Centrar el contenido horizontalmente */
+  margin-top: 20px;
+}
+
+.search-forms form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* Estilos para el tooltip */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  top: -40%;
+}
+
+.tooltip-content {
+  visibility: hidden;
+  position: absolute;
+  background-color: #111111;
+  border: 2px solid #028a0d;
+  padding: 10px; /* Ajusta el espacio interno */
+  max-width: 300px; /* Ancho máximo del tooltip */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega sombra */
+  z-index: 1; /* Asegura que esté sobre otros elementos */
+  right: -560px; /* Posiciona a la derecha del artículo */
+  top: 50%; /* Alinea la parte superior del tooltip con el artículo */
+  transform: translateY(-12%); /* Centra verticalmente */
+}
+
+/* Estilos para mostrar el tooltip al pasar el mouse */
+.grid-item:hover .tooltip-content {
+  visibility: visible;
+}
+
+
+.search-forms input[type="text"] {
+  width: 300px;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+#searchButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#searchButton:hover {
+  background-color: #0056b3;
+}
+
+/*////////////////////////////////////////*/
+/* Estilos para el input de texto y el botón dentro de "search-form" */
+.search-form input[type="text"],
+.search-form button {
+  margin-right: 5px; 
+  /* Agrega espacio a la derecha de los elementos */
+}
+
+.search-form input{
+  width: 300px;
+}
+/* Estilos para centrar verticalmente el botón "Ver Proveedores" */
+.btn-proveedores {
+  display: inline-block; /* Permite centrar verticalmente */
+  vertical-align: middle; /* Centra verticalmente */
+  line-height: normal; /* Evita espacio adicional */
+}
+/* Estilo para el botón "Aplicar filtro" */
+#aplicarFiltro {
+  font-size: 18px; /* Cambiar el tamaño de la fuente */
+  background-color: orange; /* Cambiar el color de fondo a naranja */
+  color: rgb(5, 5, 5); /* Cambiar el color del texto a blanco para que sea legible en naranja */
+  padding: 10px 10px; /* Agregar espacio alrededor del texto dentro del botón */
+  border: none; /* Eliminar el borde del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  border-radius: 35px;
+}
+
+#aplicarFiltro:hover {
+  background-color: darkorange; /* Cambiar el color de fondo cuando se pasa el cursor sobre el botón */
+}
+/* Estilo base para botones */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Estilo para el botón principal (Misiones) */
+.btn-primary {
+  background-color: #007bff; /* Color principal (puedes cambiarlo) */
+  color: #fff; /* Color del texto */
+  width: 100%; /* Opcional: haz que el input ocupe todo el ancho disponible */
+  margin-bottom: 2px; /* Espacio entre los botones */}
+
+/* Estilo para el botón secundario (Corrientes) */
+.btn-secondary {
+  background-color: #6c757d; /* Color secundario (puedes cambiarlo) */
+  color: #fff; /* Color del texto */
+  width: 100%; /* Opcional: haz que el input ocupe todo el ancho disponible */
+}
+
+/* Cambia el color al pasar el mouse por encima */
+.btn:hover {
+  opacity: 1.8;
+  color:#f78c00
+}
+.input-group {
+  margin-bottom: 5px; /* Espacio entre el input y los botones */
+  font-size: 20px;
+  width: 98%; /* Opcional: haz que el input ocupe todo el ancho disponible */
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 500px;
+}

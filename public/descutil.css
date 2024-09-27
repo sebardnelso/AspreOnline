@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #000; /* Fondo negro */
+    color: #e75602; /* Texto blanco */
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+#tabla {
+    margin-top: 20px; /* Añade espacio en la parte superior de la tabla */
+}
+.image-button {
+    width: 150px; /* Ancho fijo de los botones */
+    height: 150px; /* Alto fijo de los botones */
+    border: none;
+    background:#000;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 100px;
+    overflow: hidden; /* Para recortar imágenes más grandes */
+  }
+  .image-buttons-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Espacio arriba de los botones */
+  }
+  .image-button img {
+    max-width: 100%; /* Establece el ancho máximo de la imagen al 100% */
+    max-height: 100%; /* Establece el alto máximo de la imagen al 100% */
+  }
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #FFA500; /* Grilla naranja */
+    padding: 10px;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+#guardar {
+    margin-top: 5px;
+    padding: 5px 5px;
+    background-color: #0d39cc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#guardar:hover {
+    background-color: #0056b3;
+}
+
+/* Agrega estilos al enlace que representa el logo */
+a.logo {
+    text-decoration: none;
+    color: #fff; /* Texto blanco */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+a.logo:hover {
+    color: #FFA500; /* Texto naranja al pasar el cursor */
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Agrega tus etiquetas meta, títulos, enlaces CSS, etc. aquí -->
+    <link rel="stylesheet" href="carritos.css"> <!-- Enlaza la hoja de estilos CSS -->
+    <style>
+        /* Estilo para centrar los elementos */
+        .centered {
+            text-align: center;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        /* Estilo para dar espacio entre elementos */
+        .spacer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <a href="/index">
+            <button class="image-button">
+                <img src="favicon4.png" alt="Imagen 1">
+            </button>
+        </a>
+    <h1>Carrito de Corrientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código de Artículo</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+                <th>codcliente</th>
+                <th>Acciones</th> <!-- Columna para las acciones de eliminar -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Utiliza un bucle EJS para recorrer los elementos del carrito y mostrarlos -->
+            <% carrito.forEach((item) => { %>
+                <tr>
+                    <td><%= item.codarticulo %></td>
+                    <td><%= item.descrip %></td>
+                    <td><%= item.cantidad %></td>
+                    <td><%= item.precio %></td>
+                    <td><%= item.total %></td>
+                    <td><%= item.codcliente %></td>
+                    <td>
+                        <!-- Agrega un botón para eliminar un artículo -->
+                        <form action="/eliminarArticuloCorrientes/<%= item.id %>" method="POST">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    <!-- Agrega un botón para limpiar el carrito por completo -->
+    <div class="centered spacer">
+        <form action="/limpiarCarritoCorrientes" method="POST">
+            <button type="submit">Limpiar Carrito</button>
+        </form>
+    </div>
+    
+    <!-- Agrega el formulario para enviar el pedido -->
+    <div class="centered spacer">
+        <form action="/enviarpc" method="POST">
+            <textarea name="comentario" placeholder="Comentarios adicionales"></textarea>
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </div>
+       <!-- Agrega un mensaje de confirmación -->
+       <div id="confirmacion" style="display: none;" class="centered spacer">
+        Pedido enviado correctamente.
+         </div>
+    
+</body>
+</html>

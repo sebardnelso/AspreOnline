@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="descutil.css">
+    <title>Cargar Utilidad y Descuento</title>
+    <div class="logo">
+        <a href="/index">
+            <button class="image-button">
+                <img src="favicon4.png" alt="Imagen 1">
+            </button>
+        </a>
+    </div>
+</head>
+<body>
+    <h1>Cargar Utilidad y Descuento por Proveedor</h1>
+    <label for="filtro">Filtrar por Descripción:</label>
+    <input type="text" id="filtro" oninput="filtrarTabla()" placeholder="Ingrese la descripción">
+    <form method="post" action="/guardarDescUtil">
+        <table id="tabla">
+            <tr>
+                <th>ID</th>
+                <th>Código de Proveedor</th>
+                <th>Descripción</th>
+                <th>Descuento (%)</th>
+                <th>Utilidad (%)</th>
+                <th>Calcular Precio de Venta</th>
+            </tr>
+            <% for (const item of items) { %>
+                <tr>
+                    <td><input type="hidden" name="id[]" value="<%= item.id %>"><%= item.id %></td>
+                    <td><%= item.codproveedor %></td>
+                    <td><%= item.descripcion %></td>
+                    <td><input type="number" name="descuento[]" value="<%= item.descuento %>"></td>
+                    <td><input type="number" name="utilidad[]" value="<%= item.utilidad %>"></td>
+                    <td>
+                        <button class="guardar-button">Guardar Valores</button>
+                        <button class="calcular-precio-venta" data-id="<%= item.codproveedor %>">Calcular</button>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+    </form>
+    <script>
+        function filtrarTabla() {
+            const filtro = document.getElementById('filtro').value.toUpperCase();
+            const tabla = document.getElementById('tabla');
+            const filas = tabla.getElementsByTagName('tr');
+
+            for (let i = 1; i < filas.length; i++) {
+                const descripcion = filas[i].getElementsByTagName('td')[2].textContent.toUpperCase();
+                filas[i].style.display = descripcion.includes(filtro) ? '' : 'none';
+            }
+        }
+
+        const calcularButtons = document.querySelectorAll('.calcular-precio-venta');
+        calcularButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const itemId = button.getAttribute('data-id');
+                console.log('Haciendo clic en el botón para calcular precio de venta, itemId:', itemId);
+                fetch(`/calcular-precio-venta/${itemId}`, {
+                    method: 'POST',
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Cálculo de precio de venta exitoso');
+                            console.log('Artículo modificado:', itemId);
+                        } else {
+                            alert('Hubo un error al calcular el precio de venta');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al realizar la solicitud:', error);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores</title>
+    <link rel="stylesheet" href="proveedor.css"> <!-- Enlaza la hoja de estilos CSS -->
+</head>
+<style>
+    .proveedor-item {
+        position: relative;
+    }
+
+    .proveedor-item button {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px; /* Ajusta el espacio interno según sea necesario */
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h1>Proveedores</h1>
+
+    <!-- Agrega un campo de búsqueda -->
+    <label for="search">Buscar por Descripción:</label>
+    <input type="text" id="search" oninput="filterProveedores()" placeholder="Ingrese la descripción">
+
+    <div class="proveedores-list">
+        <% proveedores.forEach((proveedor, index) => { %>
+            <a href="/precios?codproveedor=<%= proveedor.codproveedor %>">
+                <div class="proveedor-item">
+                    <img src="<%= proveedor.codproveedor %>.jpg" alt="<%= proveedor.descripcion %>">
+                    <p><strong>Código de Proveedor:</strong> <%= proveedor.codproveedor %></p>
+                    <p><strong>Descripción:</strong> <%= proveedor.descripcion %></p>
+                    <button onclick="filtrarPorProveedor('<%= proveedor.codproveedor %>')">Filtrar</button>
+                </div>
+            </a>
+           
+        <% }); %>
+    </div>
+
+    <script>
+            function filtrarPorProveedor(codproveedor) {
+            window.location.href = "/precios?codproveedor=" + codproveedor;
+        }
+
+        function filterProveedores() {
+            const searchInput = document.getElementById('search');
+            const filter = searchInput.value.toUpperCase();
+            const proveedoresList = document.querySelector('.proveedores-list');
+            const proveedorItems = proveedoresList.getElementsByClassName('proveedor-item');
+    
+            // Recoge todos los elementos y los convierte en un array
+            const itemsArray = Array.from(proveedorItems);
+    
+            // Filtra los elementos que coinciden con la búsqueda
+            const filteredItems = itemsArray.filter(item => {
+                const descripcion = item.querySelector('p:nth-child(3)').textContent.toUpperCase();
+                return descripcion.includes(filter);
+            });
+    
+            // Borra el contenido de la lista
+            proveedoresList.innerHTML = '';
+    
+            // Añade los elementos filtrados al principio de la lista
+            filteredItems.forEach(item => {
+                proveedoresList.appendChild(item);
+            });
+    
+            // Añade los elementos no filtrados al final de la lista
+            itemsArray.forEach(item => {
+                if (!filteredItems.includes(item)) {
+                    proveedoresList.appendChild(item);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

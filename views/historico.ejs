@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Historico de Carritos</title>
+  <link rel="stylesheet" href="carritos.css"> <!-- Enlaza la hoja de estilos CSS -->
+</head>
+<body>
+  <div class="logo">
+    <a href="/index">
+        <button class="image-button">
+            <img src="favicon4.png" alt="Imagen 1">
+        </button>
+    </a>
+  <h1>Historico de Carritos</h1>
+
+  <h2>Historico de Misiones</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Código de Artículo</th>
+        <th>Descripción</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <!-- Agrega más encabezados según tus necesidades -->
+      </tr>
+    </thead>
+    <tbody>
+      <% historicoMisiones.forEach(function(item) { %>
+        <tr>
+          <td><%= item.codarticulo %></td>
+          <td><%= item.descrip %></td>
+          <td><%= item.cantidad %></td>
+          <td><%= item.precio %></td>
+          <!-- Agrega más columnas según las propiedades de tu tabla -->
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h2>Historico de Corrientes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Código de Artículo</th>
+        <th>Descripción</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <!-- Agrega más encabezados según tus necesidades -->
+      </tr>
+    </thead>
+    <tbody>
+      <% historicoCorrientes.forEach(function(item) { %>
+        <tr>
+          <td><%= item.codarticulo %></td>
+          <td><%= item.descrip %></td>
+          <td><%= item.cantidad %></td>
+          <td><%= item.precio %></td>
+          <!-- Agrega más columnas según las propiedades de tu tabla -->
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

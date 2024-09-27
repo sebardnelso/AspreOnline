@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios de Artículos</title>
+    <link rel="stylesheet" href="precios.css"> <!-- Enlaza la hoja de estilos CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <!-- Coloca aquí tu logotipo -->
+        </div>
+        <h1>Artículos</h1>
+        <div class="user-info">
+            <p><strong>Razon Social:</strong> <%= user.razonsocial %></p>
+            <p><strong>Codigo del cliente:</strong> <%= user.codcliente %></p>
+            <p><strong>Descuento:</strong> <%= user.descuento %></p>
+        </div>
+    </div>
+    <div class="search-form">
+        <form id="searchForm" action="/precios" method="GET">
+            <input type="text" name="filtro" placeholder="Buscar por código o descripción">
+            <button type="submit" id="searchButton">Buscar</button>
+        </form>
+        <!-- Agrega un botón para ir a la página de proveedores -->
+        <a href="/proveedor" class="btn-proveedores">Ver Proveedores</a>
+    </div>
+    <div class="filters">
+        <!-- Agrega las listas desplegables arriba de la sección de resultados -->
+        <label for="articulo">Artículo:</label>
+        <select id="articulo" name="articulo" class="filtro">
+            <option value=""></option>
+            <% articulos.forEach((articulo) => { %>
+                <option value="<%= articulo.nombrearticulo %>"><%= articulo.nombrearticulo %></option>
+            <% }); %>
+        </select>
+
+        <label for="marca">Marca de Auto:</label>
+        <select id="marca" name="marca" class="filtro">
+            <option value=""></option>
+            <% marcas.forEach((marca) => { %>
+                <option value="<%= marca.nombremarca %>"><%= marca.nombremarca %></option>
+            <% }); %>
+        </select>
+
+        <label for="modelo">Modelo de Auto:</label>
+        <select id="modelo" name="modelo" class="filtro">
+            <option value=""></option>
+            <% modelos.forEach((modelo) => { %>
+                <option value="<%= modelo.nombremodelo %>"><%= modelo.nombremodelo %></option>
+            <% }); %>
+        </select>
+
+        <label for="combustible">Tipo de Combustible:</label>
+        <select id="combustible" name="combustible" class="filtro">
+            <option value=""></option>
+            <% tiposCombustible.forEach((combustible) => { %>
+                <option value="<%= combustible.tipocombustible %>"><%= combustible.tipocombustible %></option>
+            <% }); %>
+        </select>
+        <button id="aplicarFiltro">Aplicar filtro</button>
+    </div>
+    <div class="grid-container">
+        <!-- Resultados de la sección principal -->
+        <% precios.forEach((articulo) => { %>
+            <div class="grid-item">
+                <p><strong>Código de Artículo:</strong> <%= articulo.codarticulo %></p>
+                <p><strong>Descripción:</strong> <%= articulo.descrip %></p>
+                <p><strong>Precio Neto:</strong> <%= articulo.precioneto %></p>
+                <p><strong>IVA:</strong> <%= articulo.iva %></p>
+                <p><strong>Total:</strong> <%= articulo.total %></p>
+                <p><strong>Stock en Misiones:</strong> <%= articulo.stockmisiones %></p>
+                <p><strong>Stock en Corriente:</strong> <%= articulo.stockcorriente %></p>
+                <!-- Campo de cantidad y botón "Cargar al carrito" -->
+                <input class="input-group" type="number" name="cantidad" placeholder="Cantidad">
+                <button class="btn btn-primary" data-codarticulo="<%= articulo.codarticulo %>">Cargar al carrito Misiones</button>
+                <button class="btn btn-secondary" data-codarticulo="<%= articulo.codarticulo %>">Cargar al carrito Corrientes</button>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!-- index.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido al Inicio</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <!-- Coloca aquí tu logotipo -->
+        </div>
+            
+            
+        <div class="user-info">
+            <p class="razon-social"><%= user.razonsocial %></p>
+            <p class="email"><%= user.email %></p>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="content">
+            <div class="oferta-container">
+                <h2>¡Oferta Vigente!</h2>
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <!-- El carrusel se actualizará dinámicamente con JavaScript -->
+                    </div>
+                    <button class="carousel-prev">←</button>
+                    <button class="carousel-next">→</button>
+                </div>
+            </div>
+      <div class="footer">
+        <form action="/crearTabla" method="POST">
+            <button class="precione" type="submit">¿Primera vez? presione aqui</button>
+        </form>
+        <a href="/logout" class="logout-button">Cerrar Sesión</a>
+    </div>
+        <!-- Botones con imágenes divididos en filas de 5 -->
+        <div class="image-buttons-row">
+            <button class="image-button">
+                <img src="favicon4.png" alt="Imagen 1">
+            </button>
+            
+            <a href="/precios">
+                <button class="image-button">
+                    <img src="precios.png" alt="Imagen 2">  
+                </button>
+            </a>
+            <a href="/carritomisiones">
+                <button class="image-button">
+                    <img src="carritomisiones.png" alt="Imagen 3">
+
+                </button>
+            </a>
+
+            <a href="/carritocorrientes">
+                <button class="image-button">
+                    <img src="carritocorrientes.png" alt="Imagen 4">
+                </button>
+            </a>
+
+            <a href="/historico">
+                <button class="image-button">
+                    <img src="historial.png" alt="Imagen 5">
+                </button>
+
+            </a>
+        </div>
+        <div class="image-buttons-row">
+            <a href="/descutil">
+                <button class="image-button">
+                    <img src="utilidades.png" alt="Imagen 6">
+                </button>
+            </a>
+            <button class="image-button"><img src="cuentacorriente.png" alt="Imagen 7"></button>
+            <button class="image-button"><img src="flete.png" alt="Imagen 8"></button>
+            <button class="image-button"><img src="faltante.png" alt="Imagen 9"></button>
+            <button class="image-button"><img src="nosotros.png" alt="Imagen 10"></button>
+        </div>
+    </div>
+    <footer>
+        <div class="redes-sociales">
+            <a href="https://www.instagram.com/autopartessol" target="_blank"><img src="/instagram.png" alt="Instagram"></a>
+            <a href="https://www.facebook.com/autopartessol" target="_blank"><img src="/face.png" alt="Facebook"></a>
+        </div>
+        <div class="correo">
+            <a href="mailto:autopartessolsrl@gmail.com"><img src="/mail.png" alt="Correo"></a>
+        </div>
+        <div class="creditos">
+            Desarrollado por: Autopartessol SRL
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+
+</body>
+</html>

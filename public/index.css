@@ -1,0 +1,219 @@
+/* index.css */
+
+/* Estilo general para el cuerpo de la página */
+body {
+    font-size: 16px;
+    background-color: #000; /* Cambia el color de fondo a oscuro */
+    color: #fff; /* Cambia el color del texto a claro */
+    zoom: 75%;
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 20px;
+    background-color: #e28903fd;
+    border-bottom: 1px solid #000; /* Línea inferior */
+}
+
+/* Logo (puedes ajustar el tamaño aquí) */
+/*.logo {
+    /* Estilos para tu logotipo */
+/*}
+
+/* Información del usuario */
+.user-info {
+    text-align: right;
+    color: #000;
+}
+
+/* Estilo para la razón social y el correo electrónico */
+.razon-social,
+.email {
+    font-size: 20px;
+}
+
+
+/* Pie de página */
+.footer {
+    text-align: right;
+    background-color: #2726263d;
+    padding: 5px 20px;
+    border-top: 1px solid #000; /* Línea superior */
+}
+
+/* Enlace de Cerrar Sesión (estilo de botón) */
+.logout-button {
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #dd0707; /* Color de fondo del botón */
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: -45px; /* Espacio arriba de la línea */
+    margin-block: 10px; 
+}
+.precione { 
+    margin-right: 10px; 
+    background-color: #064fd6;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin-block: 10px; 
+    color:aliceblue
+}
+
+.image-buttons-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Espacio arriba de los botones */
+}
+
+.image-button {
+    width: 250px; /* Ancho fijo de los botones */
+    height: 250px; /* Alto fijo de los botones */
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden; /* Para recortar imágenes más grandes */
+}
+
+.image-button img {
+    max-width: 100%; /* Establece el ancho máximo de la imagen al 100% */
+    max-height: 100%; /* Establece el alto máximo de la imagen al 100% */
+}
+/* Ajusta estos estilos según tus preferencias */
+/* Estilos para el pie de página */
+footer {
+    background-color: #333; /* Color de fondo del pie de página */
+    color: #fff; /* Color del texto en el pie de página */
+    text-align: center; /* Centrar el contenido del pie de página */
+    padding: 20px; /* Espaciado interior del pie de página */
+}
+
+/* Estilos para los enlaces de redes sociales */
+.redes-sociales a {
+    margin: 0 10px; /* Espaciado entre los íconos de redes sociales */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #fff; /* Color del texto de los enlaces */
+    display: inline-block;
+}
+
+/* Estilos para el icono de correo */
+.correo a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #fff; /* Color del texto del enlace */
+}
+
+/* Cambia el cursor al pasar el mouse sobre los enlaces */
+.redes-sociales a:hover,
+.correo a:hover {
+    color: #ff9900; /* Cambia el color del texto al pasar el mouse */
+}
+/* Estilos para los créditos */
+.creditos {
+    margin-top: 10px; /* Espaciado superior entre el contenido y los créditos */
+    font-size: 14px; /* Tamaño del texto de los créditos */
+    color: #ccc; /* Color del texto de los créditos */
+}
+.redes-sociales img, .correo img {
+    width: 30px; /* Establece el ancho deseado para las imágenes */
+    height: 30px; /* Establece la altura deseada para las imágenes */
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+h2 {
+background-color: #df5c05;
+}
+.carousel {
+  display: flex;
+  /* Ajusta el espacio entre las imágenes */
+ /* gap: 10px;*/
+  transition: transform 0.3s ease-in-out;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  
+  /*display: grid;*/
+  grid-template-columns: repeat(4, 1fr); /* 2 columnas en la grilla */
+  gap: 5px; /* Espacio entre elementos */
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/* Estilos para las imágenes dentro del carrusel */
+.carousel img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #ff4500;
+    border-radius: 50%;
+    display: block; /* Asegura que las imágenes sean elementos de bloque */
+    margin: 0 auto; /* Centra horizontalmente las imágenes */
+}
+
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 100px; /* Ancho de cada imagen */
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.carousel-prev {
+  left: 10px; /* Ajusta la posición de la flecha izquierda */
+  background-color: #96f004;
+}
+
+.carousel-next {
+  right: 10px; /* Ajusta la posición de la flecha derecha */
+  background-color: #96f004;
+}
+/* Ajustes para las imágenes en el carrusel */
+/* Estilos para el contenedor de la oferta */
+.oferta-container {
+    background-color: #131212; /* Color de fondo llamativo */
+    text-align:center; /* Centrar el texto */
+    padding: 38px; /* Agregar un espacio interno */
+    width:auto; /* Ancho máximo del contenedor */
+    height: auto; /* Altura máxima del contenedor */
+    overflow: hidden; /* Ocultar el contenido que se desborda */
+    border: 3px solid #ff4500; /* Borde alrededor del contenedor */
+}
+
+/* Estilos para la imagen dentro del contenedor de la oferta */
+.oferta-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #ff4500; /* Borde alrededor de la imagen */
+    border-radius: 50%; /* Para que la imagen se vea como un círculo */
+}
+
+/* Estilos para el texto dentro del contenedor de la oferta */
+.oferta-item p {
+    color: #ff4500; /* Color de letra llamativo */
+    font-size: 18px; /* Tamaño de letra */
+    font-weight: bold; /* Negrita */
+    margin: 10px 0; /* Espacio alrededor del texto */
+    overflow: hidden; /* Ocultar el texto que se desborda */
+    white-space:inherit; /* No permitir saltos de línea */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos para texto truncado */
+}
